@@ -1,3 +1,7 @@
+2012-09-02  Robert J. Tanner  <tanner@real-time.com>
+
+	First iteration of setup.py and associated files
+
 2012-08-31  Robert J. Tanner  <tanner@real-time.com>
 
 	Initial import

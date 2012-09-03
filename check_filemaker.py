@@ -20,9 +20,9 @@ import getopt
 from PyFileMaker import FMServer, FMServerError, FMError
 import ast
 
-
+__here__ = os.path.abspath(os.path.dirname(__file__))
 __copyright__ = 'Copyright (C) 2012 Real Time Enterprises, Inc.'
-__version__ = '0.2'
+__version__ = open(os.path.join(__here__, 'version.txt')).read().strip()
 __min_version__ = (2, 6)
 __app_name__ = 'check_filemaker'
         
