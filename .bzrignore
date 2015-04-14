@@ -4,3 +4,5 @@ check_filemaker.egg-info
 check_filemaker.egg-info/
 dist
 dist/
+build
+build/
