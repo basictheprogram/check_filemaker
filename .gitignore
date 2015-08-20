@@ -1,0 +1,5 @@
+*.pyc
+.bzr*
+build/
+dist/
+check_filemaker.egg-info/
