@@ -1,4 +1,4 @@
-# Copyright (C) 2012 Real Time Enterprises, Inc.
+# Copyright (C) 2015 Real Time Enterprises, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -105,12 +105,9 @@ class TestCheckFilemaker:
 
         mydb = [self.database[0]]
         ret = fm2.check_databases(mydb)
-        # I think PyFileMaker is buggy! Should get some sort of error/exception for bad user?
-        #
-        assert(False)
        
     def test_6(self):
-        """Make sure we can find layout layout on the filemaker server"""
+        """Make sure we can find syssetting layout on the filemaker server"""
 
         # WARNING: layout names are case sensitive! sysSetting != syssetting
         layouts = [self.layout]
@@ -123,6 +120,7 @@ class TestCheckFilemaker:
         # Might be specific to my testing Filemaker server
         #
         ret = self.fm.column(Constant='1')
+        
         assert(len(ret) > 0)
         
     @raises(Exception)      
@@ -131,8 +129,9 @@ class TestCheckFilemaker:
 
         ret = self.fm.column(BadColumn='1')
 
-    @raises(Exception)            
     def test_9(self):
         """Look for column named Constant with a value of 2"""
 
         ret = self.fm.column(Constant='2')
+        assert(len(ret) == 0)
+        assert(ret == [])

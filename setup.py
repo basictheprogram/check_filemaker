@@ -1,4 +1,4 @@
-# Copyright (C) 2012 Real Time Enterprises, Inc.
+# Copyright (C) 2015 Real Time Enterprises, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -49,5 +49,8 @@ setup(
     py_modules=['check_filemaker'],
     zip_safe=False,
     test_suite='check_filemaker.tests',
-    install_requires='PyFileMaker',
+    install_requires=[
+        'PyFileMaker',
+        'requests',
+    ],
 )

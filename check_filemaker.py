@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (C) 2012 Real Time Enterprises, Inc.
+# Copyright (C) 2015 Real Time Enterprises, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,12 +18,13 @@
 import sys, os, argparse
 import getopt
 from PyFileMaker import FMServer, FMServerError, FMError
+from requests.exceptions import HTTPError
 import ast
 
 __here__ = os.path.abspath(os.path.dirname(__file__))
 __version__ = open(os.path.join(__here__, 'version.txt')).read().strip()
 
-__copyright__ = 'Copyright (C) 2012 Real Time Enterprises, Inc.'
+__copyright__ = 'Copyright (C) 2015 Real Time Enterprises, Inc.'
 __min_version__ = (2, 6)
 __app_name__ = 'check_filemaker'
         
@@ -87,7 +88,7 @@ if __name__ == "__main__":
 
         check_python()
         args = parse_cli(sys.argv, release)
-
+        
         fm = CheckFilemaker()
         
         hostname = args.hostname
@@ -119,6 +120,9 @@ if __name__ == "__main__":
         raise SystemExit, CheckFilemaker.CRITICAL
     except FMError as e:
         print 'CRITICAL - FMError: ', e
+        raise SystemExit, CheckFilemaker.CRITICAL
+    except HTTPError as e:
+        print 'CRITICAL - Invalid response from host: ', e
         raise SystemExit, CheckFilemaker.CRITICAL
     except KeyError as e:
         print 'CRITICAL - Missing required command line parameter:', e
