@@ -43,7 +43,7 @@ setup(
     keywords='Nagios plugin monitoring FileMaker',
     author='Bob Tanner',
     author_email='tanner@real-time.com',
-    url='https://code.launchpad.net/~tanner/+junk/check_filemaker',
+    url='https://github.com/basictheprogram/check_filemaker',
     download_url='http://pypi.python.org/pypi/check_filemaker',
     license='GPL',
     py_modules=['check_filemaker'],

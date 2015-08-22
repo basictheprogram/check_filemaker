@@ -3,4 +3,4 @@ include LICENSE.txt
 include README.txt
 include version.txt
 include testing.cfg
-recursive-include tests/ *.py
+recursive-include tests *.py
